@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "./Country.css";
 
-const Country = ({ country }) => {
+const Country = ({ country, handleVisitedCountries }) => {
 	const currenciesCode = Object.keys(country.currencies?.currencies)[0];
 	const currencyName = country.currencies?.currencies[currenciesCode]?.name;
 	const currencySymbol =
 		country.currencies?.currencies[currenciesCode]?.symbol;
 
 	// console.log(country.area.area);
+	// console.log(handleVisitedCountries);
 
 	const [visited, setVisited] = useState(false);
 
@@ -32,14 +33,18 @@ const Country = ({ country }) => {
 		*/
 
 		setVisited(!visited);
+		handleVisitedCountries(country);
 	};
 
 	return (
 		// <div className={`country ${visited ? "country_visited" : "country_not_visited"}`}>
-		
+
 		<div className={`country ${visited && "country_visited"}`}>
-			<img src={country.flags?.flags?.png} alt={country.flags.flags?.alt} />
-			<p>Country Name: {country.name?.common}</p>
+			<img
+				src={country.flags?.flags?.png}
+				alt={country.flags.flags?.alt}
+			/>
+			<h4>Country Name: {country.name?.common}</h4>
 			<p>Capital City: {country.capital?.capital}</p>
 			<p>Population: {country.population?.population}</p>
 			<p>
