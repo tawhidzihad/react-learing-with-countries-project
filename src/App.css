@@ -1,0 +1,13 @@
+.containerStye {
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px solid green;
+	border-radius: 8px;
+}
+
+.h1Style {
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
